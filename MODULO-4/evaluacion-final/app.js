@@ -37,7 +37,7 @@ const listAllUserNames = () => {
 
   const ul = document.createElement("ol");
   output.innerHTML = "<h2>Lista Usuario</h2>";
-  users.map(function (user) {
+  users.forEach(function (user) {
     const li = document.createElement("li");
     li.innerHTML = user.name;
     ul.appendChild(li);
@@ -49,7 +49,6 @@ const showBasicInfoByPrompt = () => {
   //usar prompt para pedir el nombre del usuario
   //usar find para buscar el usuario por nombre
   //mostrar la informacion basica del usuario (nombre, email, username) usando innerHTML
-  output.innerHTML = "";
   const name = prompt("Ingrese el nombre del usuario");
 
   if (name == null) {
@@ -57,9 +56,7 @@ const showBasicInfoByPrompt = () => {
     return;
   }
 
-  const result = users.find((user) => {
-    user.name === name;
-  });
+  const result = users.find((user) => user.name === name);
   const detailUser = result
     ? `
 	<h2>Informacion Usuario</h2>
@@ -108,6 +105,7 @@ const showAdvancedInfoByPrompt = () => {
 
   if (name == null) {
     alert("Operacion Cancelada!");
+    return;
   }
   const result = users.find((user) => user.name === name);
   const detailUser = result
@@ -164,4 +162,4 @@ const listUserNamesAlphabetically = () => {
   output.append(ul);
 };
 
-loadUsers();
+await loadUsers();
