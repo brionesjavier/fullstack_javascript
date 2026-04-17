@@ -23,7 +23,7 @@ async function loadUsers() {
       throw new Error("No se recibio la data");
     }
 
-    users = data.slice();
+    users = data;
   } catch (error) {
     console.error("Error :", error);
   }
@@ -34,13 +34,12 @@ async function loadUsers() {
 const listAllUserNames = () => {
   //usar map para obtener los nombres de los usuarios
   //usar innerHTML
-  output.innerHTML = "<h2>Lista Usuario</h2>";
-  const ul = document.createElement("ol");
 
-  output.append();
+  const ul = document.createElement("ol");
+  output.innerHTML = "<h2>Lista Usuario</h2>";
   users.map(function (user) {
     const li = document.createElement("li");
-    li.innerHTML = `${user.name}`;
+    li.innerHTML = user.name;
     ul.appendChild(li);
   });
   output.append(ul);
@@ -59,11 +58,8 @@ const showBasicInfoByPrompt = () => {
   }
 
   const result = users.find((user) => {
-    if (user.name === name) {
-      return user;
-    }
+    user.name === name;
   });
-
   const detailUser = result
     ? `
 	<h2>Informacion Usuario</h2>
@@ -87,9 +83,7 @@ const showAddressByPrompt = () => {
     return;
   }
   const result = users.find((user) => {
-    if (user.name === name) {
-      return user;
-    }
+    user.name === name;
   });
   const detailUser = result
     ? `
@@ -114,13 +108,8 @@ const showAdvancedInfoByPrompt = () => {
 
   if (name == null) {
     alert("Operacion Cancelada!");
-    return;
   }
-  const result = users.find((user) => {
-    if (user.name === name) {
-      return user;
-    }
-  });
+  const result = users.find((user) => user.name === name);
   const detailUser = result
     ? `
 	<h2>Informacion Avanzada del Usuario</h2>
@@ -162,7 +151,7 @@ const listUserNamesAlphabetically = () => {
   //usar sort para ordenar los nombres alfabeticamente
   //usar join para convertir el array de nombres en una cadena de texto separada por comas
   //usar innerHTML para mostrar la lista de nombres ordenados
-  const userList = users.map((user) => user);
+  const userList = users.map((user) => ({ name: user.name }));
   userList.sort((a, b) => a.name.localeCompare(b.name));
   const ul = document.createElement("ol");
 
