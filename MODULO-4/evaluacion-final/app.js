@@ -79,9 +79,7 @@ const showAddressByPrompt = () => {
     alert("Operacion Cancelada!.");
     return;
   }
-  const result = users.find((user) => {
-    user.name === name;
-  });
+  const result = users.find((user) => user.name === name);
   const detailUser = result
     ? `
 	<h2>Direccion Usuario</h2>
