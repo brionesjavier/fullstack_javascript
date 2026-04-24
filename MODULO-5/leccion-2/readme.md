@@ -92,7 +92,8 @@ insert into finanzas_personales (nombre, me_debe, cuotas_cobrar, le_debo, cuotas
 values('pareja',0, 0, 50000, 1);
 ```
 
-## ![alt text](images/r9.png)
+![alt text](images/r9.png)
+---
 
     Con este cambio empezó a temblar realmente tu situación económica y lo primero que quisiera averiguar es
 
@@ -112,7 +113,7 @@ WHERE cuotas_pagar >0;
     No tuviste la valentía para negociar las cuotas con tu pareja, pero la señora del almacén de la esquina te tiene buena y te permitió bondadosamente pagarle en 13 cuotas.
 
 ## 9. Realizar el update en la tabla.
-   ![alt text](images/r11.png)
+![alt text](images/r11.png)
 
 ```sql
 update finanzas_personales
@@ -125,7 +126,7 @@ where nombre = 'almacén esquina';
 ---
 
 ## 10. Ahora que realizaste este pequeño (pero importante) ajuste ¿De cuánto será la cuota a pagar este mes?
-    ![alt text](images/r13.png)
+![alt text](images/r13.png)
 
 ```sql
 SELECT SUM( le_debo/ cuotas_pagar) AS "Cuota total mes"
